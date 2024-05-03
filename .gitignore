@@ -1,3 +1,6 @@
-*.db
-*.db.sql
-*.sqbpro
+# Ignore everything
+*
+
+# But not these files...
+!README.md
+!Schema*
