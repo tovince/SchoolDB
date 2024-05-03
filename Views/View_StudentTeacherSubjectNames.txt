@@ -1,0 +1,16 @@
+CREATE VIEW StudentTeacherSubjectNames AS
+SELECT 
+    s.studentFirstName AS StudentFirstName,
+    s.studentLastName AS StudentLastName,
+    t.teacherFirstName AS TeacherFirstName,
+    t.teacherLastName AS TeacherLastName,
+    sub.subjectName AS SubjectName,
+    s.currentCredits AS CurrentCredits
+FROM 
+    StudentTeacherSubject sts
+JOIN 
+    Students s ON sts.studentID = s.studentID
+JOIN 
+    Teachers t ON sts.teacherID = t.teacherID
+JOIN 
+    Subjects sub ON sts.subjectID = sub.subjectID;

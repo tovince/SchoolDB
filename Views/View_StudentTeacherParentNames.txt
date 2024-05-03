@@ -1,0 +1,18 @@
+CREATE VIEW StudentTeacherParentNames AS
+SELECT 
+    s.studentFirstName AS StudentFirstName,
+    s.studentLastName AS StudentLastName,
+    t.teacherFirstName AS TeacherFirstName,
+    t.teacherLastName AS TeacherLastName,
+    p.parentFirstName AS ParentFirstName,
+    p.parentLastName AS ParentLastName
+FROM 
+    StudentTeacher st
+JOIN 
+    Students s ON st.studentID = s.studentID
+JOIN 
+    Teachers t ON st.teacherID = t.teacherID
+LEFT JOIN 
+    StudentParent sp ON s.studentID = sp.studentID
+LEFT JOIN 
+    Parents p ON sp.parentID = p.parentID;
